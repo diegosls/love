@@ -1,123 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>love</title>
-<link rel="stylesheet" href="main.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="garden.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Máquina do Tempo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
 </head>
-
 
 <body>
 
-<section class="intro watch">
-  <h1>Nossa<br>Máquina do Tempo</h1>
-</section>
+    <section class="intro watch">
+        <h1>Nossa<br>Máquina do Tempo</h1>
+    </section>
 
-<section class="timer watch">
-  <div class="timer-box">
-    <p>estamos juntos há</p>
-    <h2 id="counter">...</h2>
-  </div>
-</section>
+    <section class="timer watch">
+        <div class="timer-box">
+            <p>Estamos juntos há</p>
+            <h2 id="counter">...</h2>
+        </div>
+    </section>
 
-<!-- MOMENTO 1 -->
-<section class="moment watch">
-  <div class="memory">
-    <img src="image/1.jpeg" />
+    <section class="moment watch">
+        <div class="memory">
+            <img src="image/1.jpeg" alt="O começo">
+            <div class="memory-info">
+                <span class="date">25 de janeiro de 2026</span>
+                <p class="caption">O começo de tudo.</p>
+            </div>
+        </div>
+    </section>
 
-    <p class="date">25 de janeiro de 2026</p>
+    <section class="moment watch">
+        <div class="memory">
+            <img src="image/2.jpeg" alt="Arte">
+            <div class="memory-info">
+                <span class="date">01 de fevereiro de 2026</span>
+                <p class="caption">A mais linda entre todas as obras de arte.</p>
+            </div>
+        </div>
+    </section>
 
-    <p class="caption">
-      O começo de tudo.
-    </p>
-  </div>
-</section>
+    <section class="moment watch">
+        <div class="memory">
+            <img src="image/3.jpeg" alt="Especial">
+            <div class="memory-info">
+                <span class="date">15 de fevereiro de 2026</span>
+                <p class="caption">Cada momento com você torna-se especial. E é por isso que...</p>
+            </div>
+        </div>
+    </section>
 
-<!-- MOMENTO 2 -->
-<section class="moment watch">
-  <div class="memory">
-    <img src="image/2.jpeg" />
+    <section class="moment watch">
+        <div class="memory">
+            <img src="image/4.jpeg" alt="Valorizar">
+            <div class="memory-info">
+                <span class="date">17 de fevereiro de 2026</span>
+                <p class="caption">Eu valorizo cada segundo.</p>
+            </div>
+        </div>
+    </section>
 
-    <p class="date">01 de fevereiro de 2026</p>
+    <section class="outro watch">
+        <p>É difícil te definir em uma música, já que todas as músicas de amor me lembram você.</p>
+    </section>
 
-    <p class="caption">
-      A mais linda entre todas as obras de arte.
-    </p>
-  </div>
-</section>
+    <section class="outro watch">
+        <p>Tudo agora é mais <i>vívido e alegre.</i></p>
+    </section>
 
-<!-- MOMENTO 3 -->
-<section class="moment watch">
-  <div class="memory">
-    <img src="image/3.jpeg" />
+    <section class="outro watch">
+        <p><i>"É que você coloriu os meus Dias Cinzas."</i></p>
+    </section>
 
-    <p class="date">15 de fevereiro de 2026</p>
+    <section class="music-section watch">
+        <div class="music-box">
+            <iframe
+                src="https://open.spotify.com/embed/track/72YndtlfHyl5Z5NE2qikkU?utm_source=generator&theme=0" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
 
-    <p class="caption">
-      Cada momento com você torna-se especial. E é por isso que...
-    </p>
-  </div>
-</section>
+    <section id="typing-section" class="typing-section watch">
+        <p id="typing-text"></p>
+    </section>
 
-<!-- MOMENTO 4 -->
-<section class="moment watch">
-  <div class="memory">
-    <img src="image/4.jpeg" />
+    <section class="outro watch">
+        <p><strong>EU TE AMO A CADA DIA MAIS, SOPHIA!</strong></p>
+    </section>
 
-    <p class="date">17 de fevereiro de 2026</p>
+    <section class="outro watch" style="min-height: 40vh;">
+        <p style="font-size: 0.8rem; opacity: 0.5; font-family: 'Inter'; letter-spacing: 5px; text-transform: uppercase;">
+            Continua...
+        </p>
+    </section>
 
-    <p class="caption">
-      Eu valorizo cada segundo.
-    </p>
-  </div>
-</section>
-
-<section class="outro watch">
-  <p>É difícil te definir em uma música, já que todas as músicas de amor me lembram você.</p>
-</section>
-
-<section class="outro watch">
-  <p>Tudo agora é mais vívido e alegre.</p>
-</section>
-
-<section class="outro watch">
-  <p><i>"É que você coloriu os meus Dias Cinzas."</i></p>
-</section>
-
-<!-- PLAYER DA MÚSICA -->
-<section class="music-section watch">
-  <div class="music-box">
-    <iframe
-      src="https://open.spotify.com/embed/track/72YndtlfHyl5Z5NE2qikkU?utm_source=generator&theme=0"
-      width="100%"
-      height="352"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-<section class="outro watch">
-  <p>Que a nossa história continue sendo escrita com carinho e amor.</p>
-</section>
-
-<!-- TEXTO DIGITANDO -->
-<section id="typing-section" class="typing-section watch">
-  <p id="typing-text"></p>
-</section>
-
-
-<section class="outro watch">
-  <p>EU TE AMO A CADA DIA MAIS, SOPHIA!</p>
-</section>
-<section class="outro watch">
-  <p>continua...</p>
-</section>
-
-
-<script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

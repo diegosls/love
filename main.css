@@ -1,0 +1,338 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f3e9f2;
+
+  background: radial-gradient(circle at 20% 20%, #2a0f1f 0%, transparent 40%),
+              radial-gradient(circle at 80% 30%, #3a1230 0%, transparent 45%),
+              radial-gradient(circle at 50% 80%, #1a0d25 0%, transparent 50%),
+              linear-gradient(160deg, #050505 0%, #120814 40%, #07070a 100%);
+
+  background-attachment: fixed;
+}
+
+/* estrutura */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.intro h1 {
+  font-weight: 300;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  line-height: 1.4;
+
+  background: linear-gradient(90deg, #ffd6f3, #ff8ad6, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  transform: translateY(60px) scale(.95);
+  filter: blur(12px);
+
+  transition: all 5s cubic-bezier(.19,1,.22,1);
+}
+.intro.show h1 {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@keyframes introReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ===== MOMENTOS ===== */
+
+.moment {
+  width: 100%;
+  padding: 140px 20px;
+}
+
+/* container vertical da memória */
+.memory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+  text-align: center;
+}
+
+/* FOTO */
+.memory img {
+  width: min(520px, 88vw);
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 40px rgba(255, 105, 180, 0.08),
+    0 0 60px rgba(180, 80, 255, 0.06);
+
+  opacity: 0;
+  transform: scale(0.95) translateY(40px);
+  filter: blur(6px);
+
+  transition: all 1.2s ease;
+}
+
+/* DATA */
+.date {
+  margin-top: 28px;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  transition-delay: 0.6s;
+}
+
+/* FRASE */
+.caption {
+  margin-top: 11px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 1.2s ease;
+  transition-delay: 2.1s;
+}
+
+/* ===== ANIMAÇÃO QUANDO ENTRA NA TELA ===== */
+
+.moment.show img {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0);
+}
+
+.moment.show .date {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.moment.show .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== TIMER ===== */
+
+
+.timer {
+  text-align: center;
+}
+
+.timer-box {
+  padding: 60px 70px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,105,180,.10),
+    rgba(120,60,255,.10)
+  );
+
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.06);
+
+  box-shadow:
+    inset 0 0 30px rgba(255,255,255,.04),
+    0 0 60px rgba(255,105,180,.18),
+    0 0 120px rgba(120,60,255,.12);
+
+  animation: timerFloat 6s ease-in-out infinite;
+}
+
+@keyframes timerFloat {
+  50% { transform: translateY(-6px); }
+}
+
+.timer-box p {
+  color: #ffb7e6;
+  letter-spacing: 6px;
+  font-size: .7rem;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  opacity: .7;
+}
+
+.timer-box h2 {
+  font-weight: 300;
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+
+  background: linear-gradient(90deg,#fff,#ff9ae6,#c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 25px rgba(255,105,180,.25);
+  animation: pulseLove 2.8s ease-in-out infinite;
+}
+
+@keyframes pulseLove {
+  50% { transform: scale(1.04); }
+}
+
+
+/* ===== MÚSICA ===== */
+
+.music-section {
+  padding: 80px 20px;
+}
+
+.music-box {
+  width: min(420px, 90vw);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 40px rgba(255, 105, 180, 0.18),
+    0 0 80px rgba(160, 70, 255, 0.14);
+
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.music-box:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 60px rgba(255, 105, 180, 0.28),
+    0 0 120px rgba(160, 70, 255, 0.22);
+}
+
+.music-box iframe {
+  display: block;
+  border: none;
+}
+
+/* ===== FINAL ===== */
+
+.outro {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #d6a6d9;
+  line-height: 1.8;
+  padding: 120px 20px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .memory img {
+    width: 92vw;
+  }
+}
+/* ===== FRASES FINAIS (efeito surgir poético) ===== */
+
+.outro {
+  justify-content: center;
+  text-align: center;
+  padding: 140px 20px;
+}
+
+.outro p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  max-width: 680px;
+
+  color: rgba(255,255,255,0.85);
+
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  filter: blur(8px);
+
+  transition: all 5s cubic-bezier(.19,1,.22,1);
+}
+
+/* quando aparece na tela */
+.outro.show p {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* pequeno atraso progressivo entre uma frase e outra */
+.outro:nth-of-type(1) p { transition-delay: 0.4s; }
+.outro:nth-of-type(2) p { transition-delay: 0.8s; }
+.outro:nth-of-type(3) p { transition-delay: 1s; }
+.outro:nth-of-type(4) p { transition-delay: 1.4s; }
+
+/* ===== FUNDO INTERATIVO ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      600px circle at var(--x, 50%) var(--y, 50%),
+      rgba(255, 120, 200, 0.10),
+      rgba(160, 70, 255, 0.08) 25%,
+      transparent 60%
+    );
+
+  transition: background 0.15s ease-out;
+
+}
+.typing-section{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+}
+
+#typing-text{
+  font-family: 'Playfair Display', serif;
+  font-size:2rem;
+  line-height:1.6;
+  max-width:700px;
+
+  background: linear-gradient(90deg,#ffd6f3,#ff8ad6,#c77dff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  border-right:2px solid #ff8ad6;
+  padding-right:6px;
+
+  opacity:0;
+  text-shadow:
+    0 0 18px rgba(255,120,200,.25),
+    0 0 42px rgba(160,70,255,.18);
+}
+
+
+/* cursor piscando */
+#typing-text.typing{
+  opacity:1;
+  animation: blinkCursor .8s infinite;
+}
+
+@keyframes blinkCursor{
+  0%,100%{ border-color:#ff8ad6; }
+  50%{ border-color:transparent; }
+  
+}
+
+

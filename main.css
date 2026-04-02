@@ -1,0 +1,368 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  color: #eaeaf0;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(80, 120, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 70% 40%, rgba(120, 80, 255, 0.1), transparent 50%),
+    #000;
+
+  overflow-x: hidden;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.2),
+    0 0 20px rgba(0, 200, 255, 0.2);
+}
+
+/* efeito scan */
+h1, h2 {
+  position: relative;
+}
+
+h1::after, h2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,255,0.15),
+    transparent
+  );
+
+  opacity: 0;
+  animation: scan 6s infinite;
+}
+
+@keyframes scan {
+  0%, 90%, 100% { opacity: 0; transform: translateX(-100%); }
+  95% { opacity: 1; transform: translateX(100%); }
+}
+
+
+/* ===== ESTRELAS ===== */
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+
+/* ===== SECTIONS ===== */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ===== SCROLL ANIMATION ===== */
+.watch {
+  opacity: 0;
+  transform: translateY(80px) scale(.9);
+  transition: 1.2s ease;
+}
+
+.watch.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* ===== INTRO ===== */
+.intro h1 {
+  font-size: clamp(3rem, 10vw, 5rem);
+  text-align: center;
+}
+
+
+/* ===== TIMER ===== */
+.timer-box {
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+/* ===== CARROSSEL ===== */
+.carousel-section {
+  padding: 100px 20px;
+  text-align: center;
+  flex-direction: column;
+}
+
+/* HEADER */
+.carousel-header h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+/* linha elegante */
+.carousel-header h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 12px auto 40px;
+
+  background: linear-gradient(90deg, transparent, #00eaff, transparent);
+  opacity: 0.7;
+}
+
+
+/* CONTAINER */
+.carousel {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.carousel:active {
+  cursor: grabbing;
+}
+
+
+/* TRACK */
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease;
+  padding: 0 40px;
+}
+
+
+/* SLIDES */
+.slide {
+  min-width: 60%;
+  position: relative;
+
+  transform: scale(0.8);
+  opacity: 0.3;
+
+  transition: all 0.5s ease;
+}
+
+.slide.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+/* IMAGEM */
+.slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.8),
+    0 0 20px rgba(0,200,255,0.1);
+
+  -webkit-user-drag: none;
+}
+
+
+/* LEGENDA */
+.caption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+}
+
+.caption span {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+.caption p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+
+/* ===== TEXTO ===== */
+.outro p {
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+/* ===== MUSIC ===== */
+.music-box {
+  width: 90%;
+  max-width: 400px;
+}
+/* SECTION */
+.music-section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* TÍTULO */
+.music-title {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+/* EMBED */
+.music-embed {
+  max-width: 500px;
+  margin: 0 auto;
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 20px rgba(0,200,255,0.15),
+    0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== TYPING ===== */
+.typing-section {
+  max-width: 700px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+/* ===== FULLSCREEN ===== */
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.fullscreen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fullscreen img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+}
+
+
+/* ===== BOTÕES FULLSCREEN ===== */
+.fs-close,
+.fs-next,
+.fs-prev {
+  position: absolute;
+  z-index: 10;
+
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fs-close {
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fs-next,
+.fs-prev {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.fs-next { right: 20px; }
+.fs-prev { left: 20px; }
+
+.fs-close:hover,
+.fs-next:hover,
+.fs-prev:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+
+/* ===== VIDEO ===== */
+.video-section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.video-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 0 20px rgba(0,200,255,0.1),
+    0 10px 40px rgba(0,0,0,0.6);
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+}
+
+
+/* ===== GERAL ===== */
+p, span {
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+/* remove seleção */
+.carousel, .carousel * {
+  user-select: none;
+  -webkit-user-select: none;
+}
